@@ -20,6 +20,8 @@
 // Function-based components
 import React, { useState } from "react";
 
+import List from "./list.jsx";
+
 const App = () => {
   // Refactoring to a hook:
   // 1. resource === this.set.resource
@@ -31,8 +33,8 @@ const App = () => {
   return (
     <div>
       <button className="btn btn-primary" onClick={() => setResource("posts")}>Posts</button>
-      <button className="btn btn-primary" onClick={() => setResource("tasks")}>Tasks</button>
-      <div className="resources">{resource}</div>
+      <button className="btn btn-primary" onClick={() => setResource("todos")}>To-Dos</button>
+      <List resource={resource} />
     </div>
   );
 };

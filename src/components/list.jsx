@@ -35,25 +35,24 @@
 
 // Function-based components - using hooks
 import React, { useState, useEffect } from "react";
+import useResources from "./useResources.jsx";
 
 const List = ({ resource }) => {
-  const [resources, setResource] = useState([]);
+  const resources = useResources(resource);
 
-  const fetchResources = () => {
-    const url = `https://jsonplaceholder.typicode.com/${resource}`;
-    const promise = fetch(url)
-      .then(response => response.json())
-      .then(data => setResource(data)
-    );
-  };
+  // Refactored into useResources for greater usability:
+    // const [resources, setResource] = useState([]);
 
-  // Refactoring to a useEffect hook:
-  // 1. The function (i.e. fetchResources) will be rendered if the element inside [] is different in the previous state
-  // 2. If [] is not included, then the function will be rendered every time
-  // 3. useEffect essentially combines componentDidMount and componentDidUpdate
-  useEffect(() => {
-    fetchResources(resource)}, [resource]
-  );
+    // const fetchResources = () => {
+    //   const url = `https://jsonplaceholder.typicode.com/${resource}`;
+    //   const promise = fetch(url)
+    //     .then(response => response.json())
+    //     .then(data => setResource(data)
+    //   );
+    // };
+    // useEffect(() => {
+    //   fetchResources(resource)}, [resource]
+    // );
 
   return (
     <div className="resources">

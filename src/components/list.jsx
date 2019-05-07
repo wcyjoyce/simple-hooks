@@ -49,14 +49,15 @@ const List = ({ resource }) => {
 
   // Refactoring to a useEffect hook:
   // 1. The function (i.e. fetchResources) will be rendered if the element inside [] is different in the previous state
-  // 2. useEffect essentially combines componentDidMount and componentDidUpdate
+  // 2. If [] is not included, then the function will be rendered every time
+  // 3. useEffect essentially combines componentDidMount and componentDidUpdate
   useEffect(() => {
     fetchResources(resource)}, [resource]
   );
 
   return (
     <div className="resources">
-      {resource}: {resources.length}
+      <ul>{resources.map(resource => <li key={resource.id}>{resource.title}</li>)}</ul>
     </div>
   );
 };

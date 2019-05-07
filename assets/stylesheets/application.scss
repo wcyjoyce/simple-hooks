@@ -3,6 +3,14 @@ body {
   margin: 25px;
 }
 
+.content {
+  display: flex;
+
+  .subcontent {
+    width: 50%;
+  }
+}
+
 button:first-child {
   margin-right: 10px;
 }
@@ -15,4 +23,8 @@ h2 {
 
 .resources {
   text-transform: capitalize;
+}
+
+.users {
+  padding: 34px 0px;
 }

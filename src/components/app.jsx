@@ -17,13 +17,13 @@
 
 // export default App;
 
-// Function-based components
+// Function-based components - using hooks
 import React, { useState } from "react";
 
 import List from "./list.jsx";
 
 const App = () => {
-  // Refactoring to a hook:
+  // Refactoring to a useState hook:
   // 1. resource === this.set.resource
   // 2. setResource === this.setState({ resource })
   // 3. useState === hook function from React
@@ -32,8 +32,9 @@ const App = () => {
 
   return (
     <div>
-      <button className="btn btn-primary" onClick={() => setResource("posts")}>Posts</button>
-      <button className="btn btn-primary" onClick={() => setResource("todos")}>To-Dos</button>
+      <button className="btn btn-danger" onClick={() => setResource("posts")}>Posts</button>
+      <button className="btn btn-danger" onClick={() => setResource("todos")}>Todos</button>
+      <h2>{resource}</h2>
       <List resource={resource} />
     </div>
   );

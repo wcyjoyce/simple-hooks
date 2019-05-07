@@ -21,6 +21,7 @@
 import React, { useState } from "react";
 
 import List from "./list.jsx";
+import Users from "./users.jsx";
 
 const App = () => {
   // Refactoring to a useState hook:
@@ -31,11 +32,16 @@ const App = () => {
   const [resource, setResource] = useState("posts");
 
   return (
-    <div>
+    <div className="content">
+      <div className="subcontent">
       <button className="btn btn-danger" onClick={() => setResource("posts")}>Posts</button>
       <button className="btn btn-danger" onClick={() => setResource("todos")}>Todos</button>
       <h2>{resource}</h2>
       <List resource={resource} />
+      </div>
+      <div className="subcontent">
+      <Users />
+      </div>
     </div>
   );
 };
